@@ -28,4 +28,4 @@ jobs:
               with:
                 push: true
                 tags: latest
-                context: web-content
+                context: ./web-content
