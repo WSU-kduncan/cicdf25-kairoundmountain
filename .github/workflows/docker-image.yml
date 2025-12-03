@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build the Docker image
+      run: docker build kairoundmountain/project3:latest
+
+    - name: Authenticate with Docker Hub
+      env:
+        DOCKER_PAT: ${{ secrets.DOCKER_PAT }}
+      run: docker login -u kairoundmountain -p $DOCKER_PAT
+      
+    - name: Push to Docker Hub
+      run: docker push kairoundmountain/project3:latest
