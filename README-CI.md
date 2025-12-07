@@ -51,3 +51,18 @@ The goal of this project is to configure github actions to perform automated dep
     To push a tag, run `git push origin (tag)`
 
     The workflow is triggered when a tag starting with 'v' is pushed. It then executes the same steps it did in part 2, with the addition of generating Docker tags from the GitHub tags. The repo will have latest pushed as well as tags for each major and minor version. Testing and validation is also the same as part 2, though tags must be checked by looking at the tags section on the [DockerHub repo](https://hub.docker.com/r/kairoundmountain/project3)
+
+Resources Used:
+https://semver.org/ - Double checking understanding of semantic versioning
+https://github.com/marketplace/actions/docker-metadata-action - Used documentation and example code to figure out the auto-tagging for docker
+https://github.com/docker/build-push-action  - Used documentation and example code to figure out how to use the build-push action to build and push the container
+https://github.com/docker/login-action - Used documentation and example code to figure out how to use the login github action
+https://docs.docker.com/build/ci/github-actions/manage-tags-labels/ - What pointed me to the docker-metadata action in the firs place
+
+Deepseek AI
+Prompt: What folder path should I use in a github actions workflow to specify the folder web-content in the root of the repo
+- Pretty self-explanatory, was making silly formatting mistakes and couldn't find a good reference.
+
+Gemini search AI
+Prompt: github how to push tag
+Again, pretty self-explanatory, just couldn't remember how to push a tag
