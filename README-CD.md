@@ -1,0 +1,6 @@
+1. 
+    The instance is running Amazon Linux 2023 AMI 2023.9.20251014.0 x86_64 HVM kernel-6.1. 5GB should be plenty to run it unless the docker container multiplies in size dramatically. The SG allows SSH traffic from the WSU network and all traffic from my own personal network, as well as from within the VPC. Finally, HTML traffic is allowed from anywhere.
+
+    Installing docker on this instance simply requires `yum install docker`, though `            service docker start`, `systemctl enable docker`, and `usermod -aG docker ec2-user` are necessary to finish the setup. To confirm docker is working properly you could always use the Hello World container, but it's not really any more difficult to just run the container for this project: `docker pull kairoundmountain/project3:latest` followed by `docker run --name project3 -d -p 80:80 --restart always kairoundmountain/project3:latest`, and then access the instances IP address to confirm the website is served.
+
+    The bash script is very simple: it stops and removes the running container, deletes the image, pulls a new version of the image, then runs it. To verify it worked, use `docker ps` to ensure the container is running, and `docker image ls` to see when the image was last updated. The bash script can be found at 
