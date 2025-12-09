@@ -1,0 +1,21 @@
+[
+    { 
+      "id": "redeploy-webhook",
+      "execute-command": "/home/ec2-user/update-container.sh",
+      "command-working-directory": "/home/ec2-user",
+      "response-message": "Executing redeploy web resume container",
+      "trigger-rule":
+      {
+        "match":
+        {
+          "type": "value",
+          "value": "SuperSecureToken",
+          "parameter":
+          {
+            "source": "url",
+            "name": "SECRET="
+          }
+        }
+      }
+    }
+]

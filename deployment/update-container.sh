@@ -1,3 +1,5 @@
+#!/bin/sh
+
 docker rm -f project3
 docker rmi -f kairoundmountain/project3:latest
 docker pull kairoundmountain/project3:latest
