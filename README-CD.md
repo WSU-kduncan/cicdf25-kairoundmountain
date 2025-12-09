@@ -12,11 +12,15 @@
 
     Using `./webhook -hooks hooks.json -verbose` (depending on file locations you may need to specify in more detail), it should quickly inform you whether the definition file was loaded correctly. It should also actively display logs into the terminal.
 
-    The webhook service file specifies where it can be found, that it should be restarted always with a 1 second delay between attempts, which user it should be run as, and that it should be treated as a simple process (which is beyond the scope of this). It also specifies a working directory, and that error logging should be sent to journalctl.
+    The [webhook service file](https://github.com/WSU-kduncan/cicdf25-kairoundmountain/blob/main/webhook.service) specifies where the webhook executable can be found, that it should be restarted always with a 1 second delay between attempts, which user it should be run as, and that it should be treated as a simple process (which is beyond the scope of this). It also specifies a working directory, and that error logging should be sent to journalctl.
     `sudo systemctl start webhook` will start it, and `sudo systemctl enable webhook` will have it launch on startup.
 
     You can verify the service is working properly using `journalctl -u webhook.service -f` and sending it a payload.
 
+3. 
+    I chose to configure Dockerhub to send the payload, since if I were to use github I'd have no guarantee the container image had actually reached Dockerhub yet. It's really simple to do, simply go to the dockerhub repo, click 'webhooks' and add your webhook url.
+
+    To 
 
 Resources:
 
